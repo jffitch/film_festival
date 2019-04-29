@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Brooklyn Outdoor Film Festival</title>
+  <link rel="stylesheet" href="./assets/css/film_festival.css?id=5">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
+         crossorigin="anonymous">
+</head>
+<body onload="loadFunction()">
+  <div id="content">
+      <header>
+          <div class="links"><a href="film_festival.html">Home</a></div>
+          <div class="links"><a href="film_festival.html#films">Movies</a></div>
+          <div class="links"><a href="film_festival.html#footer">Contact</a></div>
+          <div style="grid-column: 5"><a href="film_festival_register.html">Register</a></div>
+          <div style="grid-row: 2; grid-column: 1 / 6; font-size: 30px; font-family: Petit Formal Script">
+              <p>Brooklyn Outdoor Film Festival</p>
+              <p style="font-family: arial">August 5th - August 8th</p>
+              <p>Superhero Movies All Weekend!</p>
+          </div>
+      </header>
+      <section id="about">
+          <p>What is the film festival?</p>
+          <p class="red">From August 5 through August 8 at Brooklyn Bridge Park, Brooklyn Outdoor Film Festival will be showing superhero movies. Get your tickets today before they're sold out! The shows are free, but due to limited space you must <a href="film_festival_register.html">register</a>.</p>
+      </section>
+      <section id="news">
+          <h1>News</h1>
+          <p>Spiderman will be shown in 3D.</p>
+          <p>Only 1,000 tickets remaining.</p>
+      </section>
+      <section id="films">
+          <!-- will be populated using javascript function -->
+          <div>
+              ... loading movies ...
+          </div>
+      </section>
+      <footer id="footer">
+          <div class="newsLinks">
+            <a href="http://brooklyn.news12.com/" target="_blank">Brooklyn News</a>
+          </div>
+          <div class="newsLinks">
+            <a href="https://www.brooklynbridgepark.org/" target="_blank">Brooklyn Bridge Park</a>
+          </div>
+          <div class="contact">
+              <a href="http://www.facebook.com" target="_blank">
+              <i class="fab fa-facebook-square fa-4x icon"></i>
+              </a>
+           </div>
+           <div class="contact">
+              <a href="http://www.twitter.com" target="_blank">
+              <i class="fab fa-twitter fa-4x icon"></i>
+              </a>
+           </div>
+           <div class="contact">
+              <a href="http://www.instagram.com" target="_blank">
+              <i class="fab fa-instagram fa-4x icon"></i>
+              </a>
+           </div>
+      </footer>
+  </div>
+<script>
+  let movie_array = [["Spiderman", "https://image.tmdb.org/t/p/w500/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg", "5th August, 6PM", "Following the events of Captain America: Civil War, Peter Parker, with the help of his mentor Tony Stark, tries to balance his life as an ordinary high school student in Queens, New York City, with fighting crime as his superhero alter ego Spider-Man as a new threat, the Vulture, emerges."],
+  ["Underdog", "https://image.tmdb.org/t/p/w500/lfB9P9BLJ4GbjzzQ0IgEC0CVXDt.jpg", "5th August, 10 PM", "Underdog, Shoeshine Boy's heroic alter-ego, appeared whenever love interest Sweet Polly Purebred was being victimized by such villains as Simon Bar Sinister or Riff Raff. Underdog nearly always speaks in rhyme, as in, \"There's no need to fear, Underdog is here!\" His voice was supplied by Wally Cox."],
+  ["Sky High", "https://image.tmdb.org/t/p/w500/ddskSEIu1B2PwodOzZNWB5YVQzq.jpg" , "6th August, 6 PM", "Set in a world where superheroes are commonly known and accepted, young Will Stronghold, the son of the Commander and Jetstream, tries to find a balance between being a normal teenager and an extraordinary being."],
+  ["Wonder Woman", "https://image.tmdb.org/t/p/w500/imekS7f1OuHyUP2LAiTEM0zBzUz.jpg", "6th August, 10 PM", "An Amazon princess comes to the world of Man in the grips of the First World War to confront the forces of evil and bring an end to human conflict. The movie is an American superhero film based on the DC Comics character of the same name."],
+  ["The Incredibles", "https://image.tmdb.org/t/p/w500/2LqaLgk4Z226KkgPJuiOQ58wvrm.jpg", "7th August, 6 PM", "Bob Parr has given up his superhero days to log in time as an insurance adjuster and raise his three children with his formerly heroic wife in suburbia. But when he receives a mysterious assignment, it's time to get back into costume."],
+  ["Kim Possible Movie", "https://image.tmdb.org/t/p/w500/2VHoWyw70EhH3gGfm9b8ybu75MY.jpg", "7th August, 10 PM", "Dr. Drakken has an evil new plot for world domination. Eric suddenly sparks feelings in Ron about Kim that resemble much more than friendship. To make matters worse, Bueno Nacho, Ron's favorite fast food chain has turned sour on him."]];
+  function loadFunction() {
+      let inner = "";
+      for (let i of movie_array) {
+          inner += makeText(i);
+      }
+      document.getElementById("films").innerHTML = inner;
+  }
+  function makeText(arr) {
+      return "<div> <img src=\"" + arr[1] + "\" alt=\"" + arr[0] + "\" title=\"" + arr[0] + "\"/> <p class=\"movie-title\">" + arr[0] + "</p> <p class=\"movie-time\">" + arr[2] + "</p> <p class=\"movie-de3crpition\">" + arr[3] + "</p> </div>";
+  }
+</script>
+</body>
+</html>

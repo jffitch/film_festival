@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Brooklyn Outdoor Film Festival</title>
+  <link rel="stylesheet" href="./assets/css/film_festival.css?id=4">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
+     crossorigin="anonymous">
+</head>
+<body onload="loadFunction()">
+  <div id="content">
+      <header>
+          <div class="links"><a href="film_festival.html">Home</a></div>
+          <div class="links"><a href="film_festival.html#films">Movies</a></div>
+          <div class="links"><a href="film_festival.html#footer">Contact</a></div>
+          <div style="grid-row: 2; grid-column: 1 / 6; font-size: 30px; font-family: Petit Formal Script">
+              <p>Brooklyn Outdoor Film Festival</p>
+              <p style="font-family: arial">August 5th - August 8th</p>
+              <p>Superhero Movies All Weekend!</p>
+          </div>
+      </header>
+      <section id="registerForm">
+          <!-- will be populated using javascript function -->
+          <form id="rForm">
+              ... loading registration form ...
+          </form>
+          
+      </section>
+  </div>
+<script>
+    function loadFunction() {
+        let formContents = [["text", "Name"], ["text", "Phone"], ["text", "Email"], ["select", "Movie", "Spiderman Home Coming", "Underdog", "Sky High", "Wonder Woman", "The Incredibles", "Kim Possible Movie"], ["select", "Tickets", "1", "2", "3", "4", "5"]];
+        let inner = "";
+        for (let i of formContents) {
+            inner += html(i);
+        }
+        inner += "<input type=\"submit\" value=\"Submit\" id=\"submit\">";
+        document.getElementById("rForm").innerHTML = inner;
+    }
+    function html(arr) {
+        switch (arr[0]) {
+            case "text": return arr[1] + ": <input type=\"text\" name=\"" + arr[1].toLowerCase() + "\"><br><br>";
+            case "select": arr.splice(2, 0, "Select One");
+                return arr[1] + ": <select name=\"" + arr[1].toLowerCase() + "\">" + arr.slice(2).map(v => "<option value=\"" + v.toLowerCase() + "\">" + v + "</option>").join("") + "</select><br><br>";
+        }
+    }
+</script>
+</body>
+</html>
